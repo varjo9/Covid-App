@@ -24,6 +24,7 @@ public class AddTab extends mainFrame implements ActionListener
 		addButton.setFocusable(false);
 		addButton.setText("Add Data");
 		
+		//setup for the submit button
 		submit = new JButton();
 		submit = submitButton;
 		
@@ -47,7 +48,7 @@ public class AddTab extends mainFrame implements ActionListener
 	{
 		mainFrame frame = new mainFrame();
 		
-		if(e.getSource() == add)
+		if(e.getSource() == add)     //whenever the add button is clicked
 		{
 			/*
 			 * This section changes the visibility of the different panels accordingly, 
@@ -61,7 +62,7 @@ public class AddTab extends mainFrame implements ActionListener
 		}
 		if (e.getSource() == submitButton)
 		{
-			System.out.println("Submit clicked");
+			System.out.println("Submit clicked");	//whenever the submit button is clicked
 		
 			/*
 			 * this grabs all of the text in the textFields and gives them to the input String array
