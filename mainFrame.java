@@ -3,28 +3,17 @@
  * The frame does not have a layout, elements are placed manually
  */
 
-import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.Border;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 public class mainFrame 
 {
@@ -35,7 +24,7 @@ public class mainFrame
 	public static JTable table;
 	public static JScrollPane scrollPane;
 
-	static String[] columnNames = {}; //table's columns
+	static String[] columnNames = {"ID","Last Name","First Name", "Vaccine Type", "Vaccine Date", "Vaccine Location"}; //table's columns
 	static String[][] data = {}; //rest of tables data
 	private static JLabel idLabel;
 	private static JLabel lastNameLabel;
