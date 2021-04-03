@@ -2,11 +2,9 @@
  * This is everything to do with the add tab of the GUI
  */
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import java.util.*;
 
 public class AddTab extends mainFrame implements ActionListener
 {
@@ -48,7 +46,7 @@ public class AddTab extends mainFrame implements ActionListener
 	{
 		mainFrame frame = new mainFrame();
 		
-		if(e.getSource() == add)     //whenever the add button is clicked
+		if(e.getSource() == add)	//if add button is clicked
 		{
 			/*
 			 * This section changes the visibility of the different panels accordingly, 
@@ -60,14 +58,13 @@ public class AddTab extends mainFrame implements ActionListener
 			scrollPane.setVisible(false);
 			
 		}
-		if (e.getSource() == submitButton)
+		if (e.getSource() == submitButton)	//if submitButton is clicked
 		{
-			System.out.println("Submit clicked");	//whenever the submit button is clicked
 		
 			/*
 			 * this grabs all of the text in the textFields and gives them to the input String array
 			 */
-			String[][] input = new String[1][6];
+			String[][] input = new String[1][6]; //input string where we'll store the textField inputs
 			
 			input[0][0] = idInput.getText();
 			input[0][1] = lastNameInput.getText();
