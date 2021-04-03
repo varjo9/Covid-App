@@ -65,6 +65,7 @@ public class AboutTab extends mainFrame implements ActionListener
 					);
 				desc.setLineWrap(false);
 				desc.setWrapStyleWord(true);
+				desc.setEditable(false);
 				aboutPanel.add(desc);
 				created = true;
 			}
