@@ -23,7 +23,8 @@ public class VisualizeTab extends mainFrame implements ActionListener
 		visualizeButton.setText("Visualize Data");
 		
 		//basic setup for the visualize panel
-		visualizePanel.setOpaque(false);
+		visualizePanel.setOpaque(true);
+		visualizePanel.setBackground(Color.LIGHT_GRAY);
 		visualizePanel.setBounds(200,0,500,500);
 		visualizePanel.setVisible(false);
 		
