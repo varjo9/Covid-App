@@ -4,28 +4,19 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
 public class AddTab extends mainFrame implements ActionListener
 {
-	JButton add;
-	JButton submit;
 	
 	AddTab()
 	{
 		//basic setup for the add button
-		add= new JButton();
-		add = addButton;
-		
 		addButton.setBounds(0,200,200,100); //(x, y, width, height)
 		addButton.addActionListener(this);
 		addButton.setFocusable(false);
 		addButton.setText("Add Data");
 		
 		//setup for the submit button
-		submit = new JButton();
-		submit = submitButton;
-		
 		submitButton.setBounds(200, 250, 100, 25);
 		submitButton.addActionListener(this);
 		submitButton.setFocusable(false);
@@ -46,7 +37,7 @@ public class AddTab extends mainFrame implements ActionListener
 	{
 		mainFrame frame = new mainFrame();
 		
-		if(e.getSource() == add)	//if add button is clicked
+		if(e.getSource() == addButton)	//if add button is clicked
 		{
 			/*
 			 * This section changes the visibility of the different panels accordingly, 
@@ -82,7 +73,7 @@ public class AddTab extends mainFrame implements ActionListener
 			
 			frame.setData(newArray, columnNames); //updateArray to include the new Data
 			
-			//this section resets all of the text fields once submit is pressed
+			//this section resets all of the text fields to empty once submit is pressed
 			idInput.setText("");
 			lastNameInput.setText("");
 			firstNameInput.setText("");
