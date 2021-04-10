@@ -6,19 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.PrintWriter;
-
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 public class SaveTab extends mainFrame implements ActionListener
 {
-	JButton save;
-	
+
 	SaveTab()
 	{
 		//basic setup for the save button
-		save = new JButton();
-		save = saveButton;
+
 		
 		saveButton.setBounds(0,300,200,100); //(x, y, width, height)
 		saveButton.addActionListener(this);
@@ -34,10 +30,10 @@ public class SaveTab extends mainFrame implements ActionListener
 	{
 		/*
 		 * Program opens up a FileChooser, where a user can choose a file location and give a file name.
-		 * If the user presses 'save' in the file explorer, the current array data will be written into a csv file 
+		 * If the user presses 'save' in the file explorer, the current data will be written into a .csv file 
 		 * at that location
 		 */
-		if(e.getSource() == save)
+		if(e.getSource() == saveButton)
 		{
 			JFileChooser fileChooser = new JFileChooser();
 			String fileLocation = "";
