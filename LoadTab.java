@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -84,10 +86,31 @@ public class LoadTab extends mainFrame implements ActionListener
 					while((line = br.readLine()) != null)
 					{
 						lines.add(line.split(","));
-					}
+					}			
 					
 					String[][] array = new String[lines.size()][0];
-					lines.toArray(array);	//here we convert the 'lines' ArrayList (which has all of the csv file data) into a 2d array
+					lines.toArray(array);	//here we convert the 'lines' ArrayList (which has all of the csv file data) into a 2d array					
+					
+					
+					/*
+					 * Here we're going to loop through the current data's ID's and compare them to the loaded data ID's. If any of them match, they will be removed
+					 * in order to ensure that we don't store any duplicate ID numbers
+					 */
+					
+					if(data.length != 0)
+					{
+						for (int i = 1; i < array.length; i++)
+						{
+							for (int j = 0; j < data.length; j++)
+							{
+								if(array[i][0].equals(data[j][0]))
+								{	
+									array = removeRow(array, i);	//once we verify that two ID's match, we remove the row with the matching ID
+					
+								}
+							}
+						}
+					}		
 					
 					String[] columnNames = new String[array[0].length]; //here we create an array of the column names
 					
@@ -132,5 +155,40 @@ public class LoadTab extends mainFrame implements ActionListener
 			}
 			
 		}
+	}
+	
+	/*
+	 * Here we're going to remove the row at the specified index and return the newly shortened array. This is going to be used for 
+	 * whenever we're filtering out duplicate ID's from any loaded .csv files
+	 * 
+	 * the removal is done by creating a new array with one less row, and copying everything over in two parts
+	 * 
+	 * the first part copies up until the index of the row we're meant to remove
+	 * 
+	 * the second part copies everything else excluding the row at that index value
+	 */
+	public String[][] removeRow(String[][] arr, int index)
+	{
+		String[][] newArray = new String[arr.length - 1][arr[0].length];
+		
+		for(int j = 0; j < index; j++)
+		{
+			for(int k = 0; k < arr[0].length; k++)
+			{
+				newArray[j][k] = arr[j][k]; 
+			}
+		}
+		for(int y = index; y < newArray.length; y++)
+		{
+			for(int x = 0; x < arr[0].length; x++)
+			{
+				newArray[y][x] = arr[y+1][x];
+			}
+		}
+		
+		
+		
+		return newArray;
+		
 	}
 }
