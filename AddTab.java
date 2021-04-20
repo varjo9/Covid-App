@@ -52,6 +52,8 @@ public class AddTab extends mainFrame implements ActionListener
 		if (e.getSource() == submitButton)	//if submitButton is clicked
 		{
 		
+			boolean copy = false;
+			
 			/*
 			 * this grabs all of the text in the textFields and gives them to the input String array
 			 */
@@ -71,7 +73,26 @@ public class AddTab extends mainFrame implements ActionListener
 			System.arraycopy(data, 0, newArray, 0, data.length);
 			System.arraycopy(input, 0, newArray, data.length, input.length);
 			
-			frame.setData(newArray, columnNames); //updateArray to include the new Data
+			
+			/*
+			 * here we're going to check if the information we're trying to submit includes a duplicate ID. If there is a duplicate ID, then we make sure that it isn't added to the
+			 * data
+			 */
+			if(data.length != 0)
+			{
+				for (int i = 0; i < data.length; i++)
+				{
+					if(data[i][0].equals(input[0][0]))
+					{
+						copy = true;	//this sets our copy boolean to true, indicating that the submitted input includes a duplicate ID
+					}
+				}
+			}
+			if(copy == false)
+			{
+				frame.setData(newArray, columnNames); //updateArray to include the new Data
+			}
+			
 			
 			//this section resets all of the text fields to empty once submit is pressed
 			idInput.setText("");
