@@ -99,7 +99,7 @@ public class mainFrame
 		frame.setTitle("Main Screen"); //set title of frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
 		frame.setResizable(false); //prevent from being resized
-		frame.setSize(700,525);
+		frame.setSize(700,550);
 		frame.setVisible(true);
 		frame.getContentPane().setLayout(null);
 			
@@ -242,7 +242,7 @@ public class mainFrame
 		frame.getContentPane().add(scrollPane);
 		
 		/*
-		 * Here we create the two buttons inside the visualize panel that will allow us to switch between the bar char and the pie chart;
+		 * Here we create the two buttons inside the visualize panel that will allow us to switch between the bar chart and the pie chart;
 		 */
 		barButton = new JButton();	//bar chart button
 		barButton.setSize(100, 25);
